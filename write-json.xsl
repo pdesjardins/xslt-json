@@ -5,12 +5,6 @@
   <xsl:output method="text" indent="yes" />
   <xsl:strip-space elements="*" />
 
-  <xsl:template match="@*|node()">
-    <xsl:copy>
-      <xsl:apply-templates select="@*|node()" />
-    </xsl:copy>
-  </xsl:template>
-
   <xsl:template name="write.object">
     {
       <xsl:apply-templates />
