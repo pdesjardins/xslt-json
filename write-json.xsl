@@ -13,16 +13,13 @@
 
   <xsl:template name="write.object">
     {
-      <xsl:apply-templates>
-        <xsl:with-param name="json.object.id" tunnel="yes" select="generate-id(.)" />
-      </xsl:apply-templates>
+      <xsl:apply-templates />
     }
   </xsl:template>
 
   <xsl:template name="write.value">
     <xsl:param name="value.name" />
     <xsl:param name="value.data" />
-    <xsl:param name="json.object.id" tunnel="yes"></xsl:param>
     <xsl:param name="is.first.value" select="0" />
     <xsl:if test="$is.first.value = 0"><xsl:text>,</xsl:text></xsl:if>
     "<xsl:value-of select="$value.name" />" : "<xsl:value-of select="replace($value.data, '&#xA;', '\\n')" />"
